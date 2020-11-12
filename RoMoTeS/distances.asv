@@ -225,12 +225,12 @@ Deviation SignedDistInterval(Deviation *mondata_pre, ConvSet *SS, int dim)
             }
             
             /*debug_20201112: a special case. Start*/
-            if (num_elment==2)
+            if (SS->ncon==2)
             {       
-                mid_pre=(b[0]/A[0]+b[1]/A[1])/2;
-                if((A[0]*mid_pre<b[0])&&(A[1]*mid_pre<b[1])&&(mid_pre>l_xx[0])&&(mid_pre<u_xx[0]))
+                mid_pre=(SS->b[0]/SS->A[0][0]+SS->b[1]/SS->A[1][0])/2;
+                if((SS->A[0][0]*mid_pre<SS->b[0])&&(SS->A[1][0]*mid_pre<SS->b[1])&&(mid_pre>l_xx[0])&&(mid_pre<u_xx[0]))
                 {
-                    cal_result.upperb=fabs(mid_pre-b[0]/A[0]);
+                    cal_result.upperb=fabs(mid_pre-SS->b[0]/SS->A[0][0]);
                 }
             }
             /*debug_20201112: a special case. End*/
